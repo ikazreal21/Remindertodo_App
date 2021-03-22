@@ -1,0 +1,25 @@
+{% extends 'tasks/task.html' %}
+ {% block content %}
+<div class="col-9 mx-auto mt-4">
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <i class="fas fa-edit"></i>
+      <a class="card-title"> Delete</a>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote">
+        <p class="mb-0">Are you sure you want to Delete " {{item}} "?</p>
+        <a class="btn btn-warning" href="{% url 'home'%}">
+          <i class="far fa-exclamation-circle"></i> Cancel
+        </a>
+      </blockquote>
+      <form method="POST" action="">
+        {% csrf_token %}
+        <button class="btn btn-primary" type="submit" name="Create task">
+          <i class="far fa-save"></i> Confirm
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
